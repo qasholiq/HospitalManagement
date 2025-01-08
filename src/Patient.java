@@ -1,33 +1,16 @@
 // Patient.java
-public class Patient {
-    private int id;
-    private String name;
+public class Patient extends Person {
     private int age;
     private String diagnosis;
 
+    // Constructor
     public Patient(int id, String name, int age, String diagnosis) {
-        this.id = id;
-        this.name = name;
+        super(id, name);
         this.age = age;
         this.diagnosis = diagnosis;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    // Getters and Setters
     public int getAge() {
         return age;
     }
@@ -44,21 +27,10 @@ public class Patient {
         this.diagnosis = diagnosis;
     }
 
+    // Overriding toString()
     @Override
     public String toString() {
-        return "Patient{id=" + id + ", name='" + name + "', age=" + age + ", diagnosis='" + diagnosis + "'}";
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Patient)) return false;
-        Patient other = (Patient) obj;
-        return id == other.id && name.equals(other.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return id + name.hashCode();
+        return super.toString() + ", Age: " + age + ", Diagnosis: " + diagnosis;
     }
 }
+

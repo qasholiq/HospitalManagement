@@ -1,31 +1,14 @@
 // Doctor.java
-public class Doctor {
-    private int id;
-    private String name;
+public class Doctor extends Person {
     private String specialization;
 
+    // Constructor
     public Doctor(int id, String name, String specialization) {
-        this.id = id;
-        this.name = name;
+        super(id, name);
         this.specialization = specialization;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    // Getters and Setters
     public String getSpecialization() {
         return specialization;
     }
@@ -34,8 +17,10 @@ public class Doctor {
         this.specialization = specialization;
     }
 
+    // Overriding toString()
     @Override
     public String toString() {
-        return "Doctor{id=" + id + ", name='" + name + "', specialization='" + specialization + "'}";
+        return super.toString() + ", Specialization: " + specialization;
     }
 }
+

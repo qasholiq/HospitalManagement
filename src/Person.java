@@ -1,11 +1,21 @@
-public abstract class Person implements HospitalEntity {
+// Person.java
+public abstract class Person {
+    private int id;
     private String name;
-    private String address;
-    private String phoneNumber;
-    public Person(String name, String address, String phoneNumber) {
+
+    // Constructor
+    public Person(int id, String name) {
+        this.id = id;
         this.name = name;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
+    }
+
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -16,24 +26,23 @@ public abstract class Person implements HospitalEntity {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    // toString() method
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Name: " + name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    // equals() and hashCode() for object comparison
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Person)) return false;
+        Person other = (Person) obj;
+        return this.id == other.id && this.name.equals(other.name);
     }
 
     @Override
-    public String toString(){
-        return "name= "+ name + ", address=" + address + ", phoneNumber=" + phoneNumber;
+    public int hashCode() {
+        return id + name.hashCode();
     }
 }
